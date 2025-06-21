@@ -1,8 +1,8 @@
-# Step 3 – Identity and Logging
+# Step 3 - Identity and Logging
 
 This step enables monitoring to a Log Analytics workspace, assigns a managed identity to the VM, and configures RBAC permissions.
 
-## 3.1 – Create Log Analytics Workspace
+## 3.1 - Create Log Analytics Workspace
 
 Create a workspace for diagnostics:
 
@@ -22,14 +22,14 @@ az monitor log-analytics workspace show \
   --query customerId --output tsv
 ```
 
-## 3.2 – Enable VM Insights (guest metrics)
+## 3.2 - Enable VM Insights (guest metrics)
 
 VM Insights installs the Azure Monitor Agent on the VM and connects it to the workspace.
 
 This can be done via the Azure Portal:
 VM > Monitoring > Insights > Enable, then select your Log Analytics workspace.
 
-## 3.3 – Enable system-assigned managed identity
+## 3.3 - Enable system-assigned managed identity
 
 Enable the system-assigned identity for the VM. This creates a secure service principal for the VM:
 
@@ -50,7 +50,7 @@ az vm show \
 
 Remember the <principalId>.
 
-## 3.4 – Assign Reader role to the VM identity
+## 3.4 - Assign Reader role to the VM identity
 
 Assign a role to the VM’s identity to demonstrate RBAC in action:
 
@@ -63,7 +63,7 @@ az role assignment create \
 Replace <principalId> with the value returned in step 3.3.
 Replace <sub_ID> with your subscribtion ID.
 
-## 3.5 – Validate that data arrives in Log Analytics
+## 3.5 - Validate that data arrives in Log Analytics
 
 Go to the Log Analytics workspace > Logs and run this KQL query:
 
@@ -85,7 +85,7 @@ Save screenshots:
 - `05-loganalytics-heartbeat.png`
 - `06-rbac-assignment.png`
 
-## 3.6 – Allow the VM to read secrets from Key Vault
+## 3.6 - Allow the VM to read secrets from Key Vault
 
 This part is optional, however, I consider it best practice, you can now give this VM access to a Key Vault via its identity using:
 

@@ -42,13 +42,13 @@ Remember that a /27 subnet is required for Bastion
 
 All deployment steps are located in the [`steps/`](steps/) folder:
 
-- [Step 1 – Network and VM Deployment](steps/step01_network_and_vm.md)
-- [Step 2 – Bastion and NSG Configuration](steps/step02_bastion_and_nsg.md)
-- [Step 3 – Identity and Logging](steps/step03_identity_and_logging.md)
-- [Step 4 – Storage and Private Endpoint](steps/step04_storage_and_privateendpoint.md)
-- [Step 5 – Landing Zone Lite](steps/step05_landing_zone_lite.md)
-- [Step 6 – Zero Trust Web App](steps/step06_zero_trust_webapp.md)
-- [Step 7 – Sentinel Pipeline](steps/step07_sentinel_pipeline.md)
+- [Step 1 - Network and VM Deployment](steps/step01_network_and_vm.md)
+- [Step 2 - Bastion and NSG Configuration](steps/step02_bastion_and_nsg.md)
+- [Step 3 - Identity and Logging](steps/step03_identity_and_logging.md)
+- [Step 4 - Storage and Private Endpoint](steps/step04_storage_and_privateendpoint.md)
+- [Step 5 - Landing Zone Lite](steps/step05_landing_zone_lite.md)
+- [Step 6 - Zero Trust Web App](steps/step06_zero_trust_webapp.md)
+- [Step 7 - Sentinel Pipeline](steps/step07_sentinel_pipeline.md)
 
 Each step includes commands, explanations, and relevant screenshots.
 

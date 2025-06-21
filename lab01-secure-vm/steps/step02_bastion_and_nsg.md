@@ -1,8 +1,8 @@
-# Step 2 – Azure Bastion and NSG Configuration
+# Step 2 - Azure Bastion and NSG Configuration
 
 This step deploys Azure Bastion to enable secure browser-based access to the virtual machine. You will also configure the network security group (NSG) to allow only required traffic for Bastion and monitoring agents. The VM will remain fully isolated from public IP exposure.
 
-## 2.1 – Deploy Azure Bastion Host
+## 2.1 - Deploy Azure Bastion Host
 
 Create a public IP for the Bastion host:
 
@@ -27,7 +27,7 @@ az network bastion create \
 
 After deployment, go to the portal > Bastion Host > Overview and verify it is running.
 
-## 2.2 – Create and Update NSG Rules
+## 2.2 - Create and Update NSG Rules
 
 Open inbound access only to allow Bastion and agent services.
 
@@ -78,7 +78,7 @@ az network nsg rule create \
   --destination-port-ranges '*'
 ```
 
-## 2.3 – Connect via Bastion
+## 2.3 - Connect via Bastion
 
 1. Go to the VM in the portal
 2. Click `Connect` > `Bastion`
@@ -93,7 +93,7 @@ Save as:
 - `03-bastion-session.png`
 - `04-nsg-ruleset.png`
 
-## 2.4 – Test and Validate
+## 2.4 - Test and Validate
 
 Confirm:
 - RDP or SSH is working via Bastion

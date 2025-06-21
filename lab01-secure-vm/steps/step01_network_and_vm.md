@@ -1,8 +1,8 @@
-# Step 1 – Network, Subnet, NSG, and VM Deployment
+# Step 1 - Network, Subnet, NSG, and VM Deployment
 
 This step sets up the foundational infrastructure: virtual network, subnets, network security group, and the virtual machine. The VM will be deployed without a public IP and placed in a secured subnet. This lays the groundwork for later steps involving Bastion, logging, and identity.
 
-## 1.1 – Create Resource Group
+## 1.1 - Create Resource Group
 
 ```bash
 az group create --name rg-secure-vm-01 --location northeurope
@@ -10,7 +10,7 @@ az group create --name rg-secure-vm-01 --location northeurope
 
 Confirm it's created either via Azure Portal or CLI. In the portal, go to “Resource Groups” and verify `rg-secure-vm-01` exists in West Europe.
 
-## 1.2 – Deploy VNet and Subnets
+## 1.2 - Deploy VNet and Subnets
 
 You need two subnets:
 
@@ -37,7 +37,7 @@ az network vnet subnet create \
   --address-prefix 10.100.0.0/27
 ```
 
-## 1.3 – Create Network Security Group
+## 1.3 - Create Network Security Group
 
 Deny-by-default (no inbound allowed initially):
 
@@ -58,7 +58,7 @@ az network vnet subnet update \
   --network-security-group nsg-jumphost-01
 ```
 
-## 1.4 – Deploy the Virtual Machine
+## 1.4 - Deploy the Virtual Machine
 
 This machine will have no public IP and be placed behind the NSG.
 
@@ -82,7 +82,7 @@ az vm create \
 
 Replace `<StrongPasswordHere>` with a valid, complex password. After deployment, verify that the VM has no public IP and that the managed identity is enabled. I wrote `Strongpass123`.
 
-## 1.5 – Validate in Azure Portal
+## 1.5 - Validate in Azure Portal
 
 In the portal, open the VM and check:
 

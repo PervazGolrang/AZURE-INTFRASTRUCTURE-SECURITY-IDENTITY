@@ -1,4 +1,4 @@
-# Notes – Lab 01: Secure VM Deployment with Azure Bastion
+# Notes - Lab 01: Secure VM Deployment with Azure Bastion
 
 This file contains detailed notes, rationale, and justifications behind the architecture, configurations, and decisions made during this lab.
 

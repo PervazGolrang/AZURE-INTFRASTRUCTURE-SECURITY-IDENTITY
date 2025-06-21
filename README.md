@@ -20,21 +20,21 @@ Each lab is isolated, production-relevant, and includes infrastructure-as-code t
 
 All labs are built with repeatability and automation in mind. Each lab includes:
 
-- **Bicep** — primary deployment method, modular and readable
-- **ARM JSON** — for compatibility with legacy or existing systems
-- **Terraform** — alternative IaC path for multi-cloud environments
+- **Bicep** - primary deployment method, modular and readable
+- **ARM JSON** - for compatibility with legacy or existing systems
+- **Terraform** - alternative IaC path for multi-cloud environments
 
 ## Structure
 
 Each lab folder includes:
 
-- `README.md` — high-level lab documentation and step breakdown
-- `steps/` — logically structured step-by-step execution files
+- `README.md` - high-level lab documentation and step breakdown
+- `steps/` - logically structured step-by-step execution files
 - `bicep/`, `terraform/`, `arm/` — IaC templates for the same deployment
-- `img/` — relevant screenshots and architectural diagrams
-- `notes/` — deep technical explanation or architectural justification
+- `img/` - relevant screenshots and architectural diagrams
+- `notes/` - deep technical explanation or architectural justification
 - `enhancements/` — optional but realistic additional configurations
-- `docs/` — reference documents (IP plan, naming convention, etc.)
+- `docs/` - reference documents (IP plan, naming convention, etc.)
 
 ## Documentation Standards
 

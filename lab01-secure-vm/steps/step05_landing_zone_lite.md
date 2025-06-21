@@ -1,8 +1,8 @@
-# Step 5 – Landing Zone Lite with Azure Firewall and Governance  - WIP
+# Step 5 - Landing Zone Lite with Azure Firewall and Governance  - WIP
 
 This step sets up a simplified "landing zone" with baseline governance controls and perimeter firewalling. It introduces policies, tagging, cost alerts, and a stateful Azure Firewall with UDR to enforce inspection.
 
-## 5.1 – Create Azure Firewall and Subnet
+## 5.1 - Create Azure Firewall and Subnet
 
 ```bash
 az network vnet subnet create \
@@ -32,7 +32,7 @@ az network firewall ip-config create \
 
 Wait for deployment. Note the firewall private IP.
 
-## 5.2 – Create UDR and Route Traffic via Firewall
+## 5.2 - Create UDR and Route Traffic via Firewall
 
 ```bash
 az network route-table create \
@@ -57,7 +57,7 @@ az network vnet subnet update \
 
 Verify all outbound traffic is forced through the firewall.
 
-## 5.3 – Add Firewall Rules (FQDN)
+## 5.3 - Add Firewall Rules (FQDN)
 
 ```bash
 az network firewall application-rule create \
@@ -75,7 +75,7 @@ az network firewall application-rule create \
 
 Test connectivity to `windowsupdate.com` or `microsoft.com` from inside the VM.
 
-## 5.4 – Add Azure Policy for Tags
+## 5.4 - Add Azure Policy for Tags
 
 ```bash
 az policy definition create \
@@ -97,7 +97,7 @@ You can use built-in definitions as well via:
 az policy definition list --query "[?contains(displayName, 'tag')]"
 ```
 
-## 5.5 – Set Budget Alert
+## 5.5 - Set Budget Alert
 
 ```bash
 az consumption budget create \

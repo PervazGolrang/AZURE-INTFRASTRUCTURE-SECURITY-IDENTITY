@@ -1,8 +1,8 @@
-# Step 4 – Storage and Private Endpoints  - WIP
+# Step 4 - Storage and Private Endpoints  - WIP
 
 This step configures a secure Azure Storage Account with logging, private endpoint access, and access control via shared access signatures (SAS). It avoids public exposure while retaining diagnostic and operational capability.
 
-## 4.1 – Create Storage Account
+## 4.1 - Create Storage Account
 
 ```bash
 az storage account create \
@@ -22,7 +22,7 @@ Confirm it's created with secure defaults:
 - HTTPS only
 - TLS 1.2 minimum
 
-## 4.2 – Enable Storage Account Diagnostics
+## 4.2 - Enable Storage Account Diagnostics
 
 Enable platform logging to Log Analytics:
 
@@ -37,7 +37,7 @@ az monitor diagnostic-settings create \
 
 Replace `<SUB_ID>` with your subscription ID.
 
-## 4.3 – Create Private Endpoint for Storage
+## 4.3 - Create Private Endpoint for Storage
 
 This removes public network dependency.
 
@@ -54,7 +54,7 @@ az network private-endpoint create \
 
 Approve the connection if not auto-approved.
 
-## 4.4 – Create Private DNS Zone and Link
+## 4.4 - Create Private DNS Zone and Link
 
 ```bash
 az network private-dns zone create \
@@ -78,7 +78,7 @@ az network private-endpoint dns-zone-group create \
 
 Test that `stsecureweu01.blob.core.windows.net` resolves to a private IP from the VM.
 
-## 4.5 – Generate Shared Access Signature (SAS)
+## 4.5 - Generate Shared Access Signature (SAS)
 
 ```bash
 az storage container create \
@@ -98,7 +98,7 @@ az storage container generate-sas \
 
 Store the SAS token securely.
 
-## 4.6 – Validate Access from VM
+## 4.6 - Validate Access from VM
 
 SSH or RDP into the VM via Bastion.
 
@@ -115,7 +115,7 @@ az storage blob upload \
 
 Or use `curl`/`wget` to access via HTTPS endpoint and confirm connectivity.
 
-## 4.7 – KQL Log Verification
+## 4.7 - KQL Log Verification
 
 ```kusto
 AzureDiagnostics

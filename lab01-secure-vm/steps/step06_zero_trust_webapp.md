@@ -1,4 +1,4 @@
-# Step 6 – Zero Trust Web App with WAF and Azure AD Authentication  - WIP
+# Step 6 - Zero Trust Web App with WAF and Azure AD Authentication  - WIP
 
 This step simulates a production-grade public web application that uses:
 - Azure App Service for hosting
@@ -8,7 +8,7 @@ This step simulates a production-grade public web application that uses:
 - Private Endpoint to isolate backend
 - Logging via Diagnostic Settings to Log Analytics
 
-## 6.1 – Create App Service Plan and Web App
+## 6.1 - Create App Service Plan and Web App
 
 ```bash
 az appservice plan create \
@@ -27,7 +27,7 @@ az webapp create \
 
 Push simple app content via Git or use deployment center to upload.
 
-## 6.2 – Create Private Endpoint for Web App
+## 6.2 - Create Private Endpoint for Web App
 
 ```bash
 az network private-endpoint create \
@@ -41,7 +41,7 @@ az network private-endpoint create \
 
 Confirm DNS resolution via `privatelink.azurewebsites.net`.
 
-## 6.3 – Create Azure Front Door + WAF Policy
+## 6.3 - Create Azure Front Door + WAF Policy
 
 ```bash
 az network front-door create \
@@ -66,7 +66,7 @@ az network front-door waf-policy rule create \
 
 Associate the WAF policy to the Front Door endpoint.
 
-## 6.4 – Enable Azure AD Authentication for Web App
+## 6.4 - Enable Azure AD Authentication for Web App
 
 ```bash
 az ad app create \
@@ -82,7 +82,7 @@ az webapp auth update \
 
 Test SSO login using a test user in AAD.
 
-## 6.5 – Enable Diagnostic Logs to Log Analytics
+## 6.5 - Enable Diagnostic Logs to Log Analytics
 
 ```bash
 az monitor diagnostic-settings create \

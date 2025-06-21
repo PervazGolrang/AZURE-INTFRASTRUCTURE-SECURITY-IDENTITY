@@ -1,4 +1,4 @@
-# Step 7 – Sentinel Pipeline and Threat Response - WIP
+# Step 7 - Sentinel Pipeline and Threat Response - WIP
 
 This step builds a security monitoring pipeline using:
 - Microsoft Defender for Cloud (recommendations, alerts)
@@ -7,7 +7,7 @@ This step builds a security monitoring pipeline using:
 - Kusto Query Language (KQL) for custom analytics
 - Alert rules triggering playbooks or actions
 
-## 7.1 – Enable Microsoft Defender for Cloud
+## 7.1 - Enable Microsoft Defender for Cloud
 
 ```bash
 az security pricing create \
@@ -18,7 +18,7 @@ az security pricing create \
 
 Verify under **Microsoft Defender for Cloud > Environment Settings**.
 
-## 7.2 – Enable Azure Sentinel
+## 7.2 - Enable Azure Sentinel
 
 ```bash
 az monitor log-analytics workspace create \
@@ -33,7 +33,7 @@ az sentinel workspace onboarding-state enable \
 
 Confirm Sentinel is enabled via Azure Portal.
 
-## 7.3 – Connect Data Sources
+## 7.3 - Connect Data Sources
 
 ```bash
 az monitor diagnostic-settings create \
@@ -45,7 +45,7 @@ az monitor diagnostic-settings create \
 
 Also connect Defender, AAD, and Activity Logs via Sentinel UI.
 
-## 7.4 – Create Workbook Dashboard
+## 7.4 - Create Workbook Dashboard
 
 - Go to Azure Sentinel > Workbooks
 - Create a new workbook using template: **"Security Events Overview"**
@@ -53,7 +53,7 @@ Also connect Defender, AAD, and Activity Logs via Sentinel UI.
 
 Save workbook as `Sentinel Security Dashboard`.
 
-## 7.5 – Create Alert Rule with KQL
+## 7.5 - Create Alert Rule with KQL
 
 ```kusto
 SecurityEvent
@@ -68,7 +68,7 @@ Create alert rule:
 - Trigger: Every 5 minutes
 - Action: Email + Logic App
 
-## 7.6 – Optional: Auto-Remediation Logic App
+## 7.6 - Auto-Remediation Logic App
 
 Create a Logic App that:
 - Disables the user account via Graph API
