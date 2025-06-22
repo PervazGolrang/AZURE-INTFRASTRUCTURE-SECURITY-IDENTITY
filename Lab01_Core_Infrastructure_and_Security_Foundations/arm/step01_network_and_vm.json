@@ -1,3 +1,6 @@
+// ARM json: Step 1 - Network and VM Deployment
+// Based on step01_network_and_vm.md
+
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -5,7 +8,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.36.1.42791",
-      "templateHash": "2918292716433898515"
+      "templateHash": "3033271445380095167"
     }
   },
   "parameters": {
@@ -13,16 +16,12 @@
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
     },
-    "prefix": {
-      "type": "string",
-      "defaultValue": "lab01"
-    },
     "vmAdminUsername": {
       "type": "string",
       "defaultValue": "labadmin"
     },
     "vmAdminPassword": {
-      "type": "securestring"
+      "type": "secureString"
     }
   },
   "variables": {

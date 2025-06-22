@@ -1,9 +1,8 @@
-// Bicep: Step 1 – Network and VM Deployment
+// Bicep: Step 1 - Network and VM Deployment
 // Based on step01_network_and_vm.md
 
 // PARAMETERS
 param location string = resourceGroup().location
-param prefix string = 'lab01'
 param vmAdminUsername string = 'labadmin'
 @secure()
 param vmAdminPassword string

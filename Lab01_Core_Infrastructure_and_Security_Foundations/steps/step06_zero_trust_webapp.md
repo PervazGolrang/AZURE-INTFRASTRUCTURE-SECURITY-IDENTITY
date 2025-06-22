@@ -1,4 +1,4 @@
-# Step 6 - Zero Trust Web App with WAF and Azure AD Authentication  - WIP
+# Step 6 - Zero Trust Web App with WAF and Azure AD Authentication
 
 This step simulates a production-grade public web application that uses:
 - Azure App Service for hosting
@@ -98,6 +98,6 @@ Test SSO login using a test user in AAD.
 
 ## Screenshots
 
-![14_custom_rule_waf](images/14_custom_rule_waf.png)
-![15-app-private-endpoint](images/15-app-private-endpoint)
-![16-frontdoor-waf](images/16-frontdoor-waf)
+- `14_custom_rule_waf`
+- `15-app-private-endpoint`
+- `16-frontdoor-waf`

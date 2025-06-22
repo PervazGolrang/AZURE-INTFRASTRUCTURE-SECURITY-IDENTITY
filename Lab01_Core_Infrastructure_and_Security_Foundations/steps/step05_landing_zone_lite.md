@@ -1,4 +1,4 @@
-# Step 5 - Landing Zone Lite with Azure Firewall and Governance  - WIP
+# Step 5 - Landing Zone Lite with Azure Firewall and Governance
 
 This step sets up a simplified "landing zone" with baseline governance controls and perimeter firewalling. It introduces policies, tagging, cost alerts, and a stateful Azure Firewall with UDR to enforce inspection.
 
@@ -88,7 +88,7 @@ The budget was created in the Azure Portal because the CLI JSON method failed. I
 
 ## Screenshots
 
-![10-firewall-deployment](images/10-firewall-deployment.png)
-![11-budget-input.png](images/11-budget-input.png)
-![12-budget-alert.png](images/12-budget-alert.png)
-![13-policy-eval.png](images/13-policy-eval.png)
+- `10-firewall-deployment`
+- `11-budget-input.png`
+- `12-budget-alert.png`
+- `13-policy-eval.png`

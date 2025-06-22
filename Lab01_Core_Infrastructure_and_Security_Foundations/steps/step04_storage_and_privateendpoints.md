@@ -1,4 +1,4 @@
-# Step 4 - Storage and Private Endpoints  - WIP
+# Step 4 - Storage and Private Endpoints
 
 This step configures a secure Azure Storage Account with logging, private endpoint access, and access control via shared access signatures (SAS). It avoids public exposure while retaining diagnostic and operational capability.
 
@@ -129,6 +129,6 @@ Or use `curl`/`wget` to access via HTTPS endpoint and confirm connectivity.
 
 ## Screenshots
 
-![07-private-endpoint-blob.png](images/07-private-endpoint-blob.png)
-![08-dns-resolution.png](images/08-dns-resolution.png)
-![09-sas.png](images/09-sas.png)
+- `07-private-endpoint-blob.png`
+- `08-dns-resolution.png`
+- `09-sas.png`

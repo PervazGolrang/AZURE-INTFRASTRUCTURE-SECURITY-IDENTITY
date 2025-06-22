@@ -96,5 +96,5 @@ You can test that SSH or RDP from your local machine is blocked (should timeout 
 
 ## Screenshots:
 
-![03-bastion-session.png](images/03-bastion-session.png)
-![04-nsg-ruleset.png](images/04-nsg-ruleset.png)
+- `03-bastion-session.png`
+- `04-nsg-ruleset.png`

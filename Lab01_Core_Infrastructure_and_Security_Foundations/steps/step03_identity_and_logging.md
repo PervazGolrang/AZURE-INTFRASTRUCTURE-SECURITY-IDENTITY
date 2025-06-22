@@ -91,5 +91,5 @@ This will allow the VM to retrieve secrets (e.g., connection strings) securely w
 
 ## Screenshots:
 
-![05-loganalytics-heartbeat.png](images/05-loganalytics-heartbeat.png)
-![06-rbac-assignment.png](images/06-rbac-assignment.png)
+- `05-loganalytics-heartbeat.png`
+- `06-rbac-assignment.png`

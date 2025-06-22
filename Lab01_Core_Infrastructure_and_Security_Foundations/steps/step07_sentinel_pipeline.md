@@ -1,4 +1,4 @@
-# Step 7 - Sentinel Pipeline and Threat Response - WIP
+# Step 7 - Sentinel Pipeline and Threat Response
 
 This step builds a security monitoring pipeline using:
 - Microsoft Defender for Cloud (recommendations, alerts)
@@ -44,4 +44,4 @@ These two steps ensures that Sentinel receives logs from the virtual machines an
 
 ## Screenshots
 
-![17-sentinel-overview](images/17-sentinel-overview.png)
+- `17-sentinel-overview`

@@ -8,7 +8,7 @@ This step sets up the foundational infrastructure: virtual network, subnets, net
 az group create --name rg-secure-vm-01 --location northeurope
 ```
 
-Confirm it's created either via Azure Portal or CLI. In the portal, go to “Resource Groups” and verify `rg-secure-vm-01` exists in West Europe.
+Confirm it's created either via Azure Portal or CLI. In the portal, go to “Resource Groups” and verify `rg-secure-vm-01` exists in North Europe.
 
 ## 1.2 - Deploy VNet and Subnets
 
@@ -45,7 +45,7 @@ Deny-by-default (no inbound allowed initially):
 az network nsg create \
   --resource-group rg-secure-vm-01 \
   --name nsg-jumphost01 \
-  --location westeurope
+  --location northeurope
 ```
 
 Then associate it with the subnet:
@@ -68,7 +68,7 @@ az vm create \
   --name vm-jhost-neu01 \                   ## Keep lower than 15-characters
   --image Win2022Datacenter \
   --admin-username labadmin \
-  --admin-password <StrongPasswordHere> \
+  --admin-password Strongpass123 \
   --vnet-name vnet-core-neu01 \
   --subnet subnet-jumphost01 \
   --nsg "" \
@@ -80,17 +80,17 @@ az vm create \
   --location northeurope
 ```
 
-Replace `<StrongPasswordHere>` with a valid, complex password. After deployment, verify that the VM has no public IP and that the managed identity is enabled. I wrote `Strongpass123`.
+After deployment, verify that the VM has no public IP and that the managed identity is enabled.
 
 ## 1.5 - Validate in Azure Portal
 
 In the portal, open the VM and check:
 
 - No public IP address is assigned
-- NIC is in subnet `subnet-jumphost-01` under `vnet-core-neu01`
+- NIC is in subnet `subnet-jumphost01` under `vnet-core-neu01`
 - Managed identity is enabled
 
 ## Screenshots:
 
-![01-vm-no-public-ip.png](images/01-vm-no-public-ip.png)
-![02-vnet-subnet-nsg.png](images/02-vnet-subnet-nsg.png)
+- `01-vm-no-public-ip.png`
+- `02-vnet-subnet-nsg.png`
