@@ -84,15 +84,6 @@ az network nsg rule create \
 2. Click `Connect` > `Bastion`
 3. Log in using the credentials you set during VM deployment
 
-Capture screenshots:
-- Bastion connection screen
-- VM desktop (if GUI is enabled)
-- NSG rule list
-
-Save as:
-- `03-bastion-session.png`
-- `04-nsg-ruleset.png`
-
 ## 2.4 - Test and Validate
 
 Confirm:
@@ -102,3 +93,8 @@ Confirm:
 - NSG logging is optionally enabled for diagnostics
 
 You can test that SSH or RDP from your local machine is blocked (should timeout or be denied).
+
+## Screenshots:
+
+![03-bastion-session.png](images/03-bastion-session.png)
+![04-nsg-ruleset.png](images/04-nsg-ruleset.png)

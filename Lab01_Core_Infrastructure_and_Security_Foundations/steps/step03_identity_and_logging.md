@@ -73,17 +73,8 @@ Heartbeat
 | sort by TimeGenerated desc
 ```
 
-You should see heartbeat records every minute.
+This should log heartbeat records every minute.
 Guest metrics (CPU, memory, disk) will appear in the InsightsMetrics table after a few minutes.
-
-Confirm:
-- Heartbeat logs exist
-- Guest metrics and performance counters appear
-- Logs are being sent from the VM
-
-Save screenshots:
-- `05-loganalytics-heartbeat.png`
-- `06-rbac-assignment.png`
 
 ## 3.6 - Allow the VM to read secrets from Key Vault
 
@@ -97,3 +88,8 @@ az keyvault set-policy \
 ```
 
 This will allow the VM to retrieve secrets (e.g., connection strings) securely with no credentials stored in code.
+
+## Screenshots:
+
+![05-loganalytics-heartbeat.png](images/05-loganalytics-heartbeat.png)
+![06-rbac-assignment.png](images/06-rbac-assignment.png)

@@ -90,12 +90,7 @@ In the portal, open the VM and check:
 - NIC is in subnet `subnet-jumphost-01` under `vnet-core-neu01`
 - Managed identity is enabled
 
-Capture screenshots of:
+## Screenshots:
 
-- VM Overview tab
-- NIC IP configuration
-- Subnet + NSG association
-
-Save all images under `/images/` and name them clearly:
-- `01-vm-no-public-ip.png`
-- `02-vnet-subnet-nsg.png`
+![01-vm-no-public-ip.png](images/01-vm-no-public-ip.png)
+![02-vnet-subnet-nsg.png](images/02-vnet-subnet-nsg.png)

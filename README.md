@@ -1,53 +1,66 @@
-# Azure Infrastructure & Security Lab Series
+# Azure Infrastructure, Security, and Identity Lab Series
 
-This repository contains a structured series of Azure infrastructure and security-focused labs that reflect real-world deployment, configuration, and governance practices. It is designed for my personal exercise and for individuals who want to demonstrate technical depth across Azure administration, networking, identity, monitoring, and security using both manual and automated approaches.
+This repository provides a curated set of advanced hands-on lab projects focused on Azure infrastructure deployment, security hardening, hybrid connectivity, and enterprise-grade identity management. Each lab project is built with a realistic step-by-step approach using both the Azure portal and infrastructure-as-code (Bicep, ARM, and Terraform), and includes professional documentation and visual walkthroughs.
 
-Each lab is isolated, production-relevant, and includes infrastructure-as-code templates (Bicep, ARM JSON, and Terraform), detailed step-by-step documentation, and operational output. Labs follow enterprise standards and include enhancements, architecture diagrams, and optional troubleshooting scenarios.
+## Objectives
 
-## Lab Overview
+- Build production-aligned Azure environments using industry best practices
+- Reinforce AZ-104, AZ-500, and AZ-305 knowledge through practical application
+- Demonstrate cloud engineering proficiency through design, deployment, and security
+- Show layered understanding of access control, policy enforcement, observability, and recovery
 
-| Lab  | Title                            | Core Topics                                        |
-|------|----------------------------------|----------------------------------------------------|
-| 01   | Secure VM Deployment (Bastion)   | VM, NSG, Bastion, Log Analytics, Managed Identity  |
-| 02   | Private Storage & Logging        | Storage, Private Endpoint, SAS, Diagnostics        |
-| 03   | RBAC + PIM Access Design         | IAM, Role Assignment, Privileged Access Management |
-| 04   | Networking with UDR & DNS        | UDRs, NSGs, Subnet Design, Custom DNS              |
-| 05   | Landing Zone Lite                | Policy, Tags, Budgets, Firewall Deployment         |
-| 06   | Zero Trust Web Application       | App Service, Front Door, WAF, TLS, AAD Login       |
-| 07   | Microsoft Sentinel Integration   | Defender, Sentinel, Workbooks, Alerts, KQL         |
+## Technologies and Services
 
-## Infrastructure as Code
+- Azure Virtual Network, Bastion, NSG, UDR, DNS
+- Azure Storage, Diagnostic Settings, Azure Monitor
+- RBAC, Privileged Identity Management, Conditional Access, Defender for Cloud
+- Azure Firewall, Azure Policy, Management Groups, Blueprints
+- Web Application Firewall (WAF), Azure Front Door
+- Log Analytics, Azure Sentinel, Identity Protection
+- VPN Gateway, ExpressRoute, Hybrid DNS, Private Link, Application Gateway
+- Entra ID (Azure AD), PIM, Access Reviews, App Proxy, SSO
 
-All labs are built with repeatability and automation in mind. Each lab includes:
+## Labs Overview
 
-- **Bicep** - primary deployment method, modular and readable
-- **ARM JSON** - for compatibility with legacy or existing systems
-- **Terraform** - alternative IaC path for multi-cloud environments
+### Project 01: Core Infrastructure & Security Foundations
+A full secure infrastructure deployment, covering VM isolation, diagnostics, access security, identity hardening, network control, and Sentinel integration. Built mainly with Azure Cloud Shell.
 
-## Structure
+- Step 01: Secure VNet, NSG, VM Deployment with Bastion (no public IP)
+- Step 02: Private Storage Account with Logging and Firewalls
+- Step 03: RBAC and Privileged Identity Management
+- Step 04: UDR and Custom DNS Forwarders
+- Step 05: Landing Zone with Azure Firewall and Policies
+- Step 06: Zero Trust Web App with Azure Front Door and WAF
+- Step 07: Log Analytics and Microsoft Sentinel Alerting
 
-Each lab folder includes:
+### Project 02: Mid-Tier Enterprise Infrastructure
+A hybrid cloud architecture integrating multi-region deployment, private DNS, VPN/ExpressRoute, and high-availability practices. Includes Blueprint governance and budget enforcement.
 
-- `README.md` - high-level lab documentation and step breakdown
-- `steps/` - logically structured step-by-step execution files
-- `bicep/`, `terraform/`, `arm/` — IaC templates for the same deployment
-- `img/` - relevant screenshots and architectural diagrams
-- `notes/` - deep technical explanation or architectural justification
-- `enhancements/` — optional but realistic additional configurations
-- `docs/` - reference documents (IP plan, naming convention, etc.)
+(Coming soon - documented in full once Project 01 is finalized.)
 
-## Documentation Standards
+### Project 03: Enterprise Identity & Conditional Access
+An identity-focused lab targeting secure authentication, privileged access, app registration, external access governance, and advanced monitoring with Defender and Sentinel.
 
-- Markdown files are formatted for clarity and readability
-- Diagrams are created using Draw.io and included as `.drawio` and `.png`
-- Screenshots are provided where GUI steps are relevant
-- Logs and query outputs are captured in `test-output.log` per lab
-- Cleanup instructions are included for all resources
+(Coming soon - documented in full once Project 02 is finalized.)
+
+## Features
+
+- Step-by-step `.md` walkthroughs for every task
+- Clean, readable, and production-aligned code (Bicep, ARM, Terraform)
+- Visual topology diagrams and screenshots throughout
+- Optional enhancement sections per lab (e.g., Key Vault, Defender, Sentinel tuning)
+- Cleanup automation and resource lifecycle management
+- Written as if already part of a professional SOC or infra team
+
+## Intended Audience
+
+This repository was mainly built for testing my knowledge, however, it also is intended for engineers and professionals preparing for roles in Azure infrastructure, cloud security, or hybrid cloud design. The content reflects what would be expected from a cloud engineer with practical experience, even without official work experience.
 
 ## Requirements
 
-- Azure Subscription with contributor access
-- Azure CLI (latest version)
-- Terraform CLI (if using Terraform)
-- Bicep CLI (if not using native Bicep with Azure CLI)
-- Visual Studio Code with markdown preview and Azure extensions
+- Azure subscription with Contributor or Owner access
+- Azure CLI and Terraform CLI installed locally
+- Bicep CLI or Azure CLI with native Bicep support
+- Visual Studio Code or equivalent editor
+- Basic familiarity with PowerShell or Bash
+- Budget of €15. (**Remember to cleanup**) 
