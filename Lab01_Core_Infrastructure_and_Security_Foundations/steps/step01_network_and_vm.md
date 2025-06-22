@@ -14,7 +14,7 @@ Confirm it's created either via Azure Portal or CLI. In the portal, go to “Res
 
 You need two subnets:
 
-- `subnet-jumphost-01`: for the VM
+- `subnet-jumphost01`: for the VM
 - `AzureBastionSubnet`: reserved name for Bastion
 
 ```bash
@@ -23,7 +23,7 @@ az network vnet create \
   --resource-group rg-secure-vm-01 \
   --location northeurope \
   --address-prefix 10.100.0.0/16 \
-  --subnet-name subnet-jumphost-01 \
+  --subnet-name subnet-jumphost01 \
   --subnet-prefix 10.100.1.0/24
 ```
 
@@ -44,7 +44,7 @@ Deny-by-default (no inbound allowed initially):
 ```bash
 az network nsg create \
   --resource-group rg-secure-vm-01 \
-  --name nsg-jumphost-01 \
+  --name nsg-jumphost01 \
   --location westeurope
 ```
 
@@ -53,9 +53,9 @@ Then associate it with the subnet:
 ```bash
 az network vnet subnet update \
   --vnet-name vnet-core-neu01 \
-  --name subnet-jumphost-01 \
+  --name subnet-jumphos01 \
   --resource-group rg-secure-vm-01 \
-  --network-security-group nsg-jumphost-01
+  --network-security-group nsg-jumphos01
 ```
 
 ## 1.4 - Deploy the Virtual Machine
@@ -70,7 +70,7 @@ az vm create \
   --admin-username labadmin \
   --admin-password <StrongPasswordHere> \
   --vnet-name vnet-core-neu01 \
-  --subnet subnet-jumphost-01 \
+  --subnet subnet-jumphost01 \
   --nsg "" \
   --public-ip-address "" \
   --assign-identity \
