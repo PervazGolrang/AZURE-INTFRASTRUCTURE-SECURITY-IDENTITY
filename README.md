@@ -33,7 +33,7 @@ A full secure infrastructure deployment, covering VM isolation, diagnostics, acc
 - Step 06: Zero Trust Web App with Azure Front Door and WAF
 - Step 07: Log Analytics and Microsoft Sentinel Alerting
 
-### Project 02: Mid-Tier Enterprise Infrastructure
+### Project 02: Advanced Enterprise Infrastrucure
 A hybrid cloud architecture integrating multi-region deployment, private DNS, VPN/ExpressRoute, and high-availability practices. Includes Blueprint governance and budget enforcement.
 
 (Coming soon - documented in full once Project 01 is finalized.)
