@@ -37,11 +37,11 @@ A full secure infrastructure deployment, covering VM isolation, diagnostics, acc
 A hybrid cloud architecture integrating multi-region deployment, private DNS, secure connectivity (VPN/ExpressRoute), and high-availability practices. Includes modern governance using Azure Policy and Template Specs, plus cost enforcement and monitoring automation.
 
 - Step 01: Governance Framework (Policy, Tags, and Cost Controls with Template Specs)
-- Step 02: Hybrid Connectivity (VPN Gateway and optional ExpressRoute with IPsec Routing)
+- Step 02: Hybrid Connectivity (VPN Gateway and ExpressRoute with IPsec Routing)
 - Step 03: Identity Bridge with Entra Connect, Seamless SSO, and Conditional Access
-- Step 04: Highly Available Web Application Deployment (Azure Front Door, Zonal App Services, Auto-scaling)
+- Step 04: Highly Available Web Application Deployment
 - Step 05: Network Virtual Appliance (NVA), UDR, and Custom Routing
-- Step 06: Monitoring, Alerts, Dashboards, and Automated Remediation (using Log Analytics, Action Groups, and GitHub Actions)
+- Step 06: Monitoring, Alerts, Dashboards, and Automated Remediation
 
 ### Project 03: Enterprise Identity & Conditional Access
 A Zero Trust-aligned identity architecture focused on secure authentication, least-privilege access, external collaboration control, workload identity protection, and advanced analytics. All configurations follow Microsoft-recommended best practices and are deployed using Bicep.
