@@ -34,12 +34,17 @@ A full secure infrastructure deployment, covering VM isolation, diagnostics, acc
 - Step 07: Log Analytics and Microsoft Sentinel Alerting
 
 ### Project 02: Advanced Enterprise Infrastrucure
-A hybrid cloud architecture integrating multi-region deployment, private DNS, VPN/ExpressRoute, and high-availability practices. Includes Blueprint governance and budget enforcement.
+A hybrid cloud architecture integrating multi-region deployment, private DNS, secure connectivity (VPN/ExpressRoute), and high-availability practices. Includes modern governance using Azure Policy and Template Specs, plus cost enforcement and monitoring automation.
 
-(Coming soon - documented in full once Project 01 is finalized.)
+- Step 01: Governance Framework (Policy, Tags, and Cost Controls with Template Specs)
+- Step 02: Hybrid Connectivity (VPN Gateway and optional ExpressRoute with IPsec Routing)
+- Step 03: Identity Bridge with Entra Connect, Seamless SSO, and Conditional Access
+- Step 04: Highly Available Web Application Deployment (Azure Front Door, Zonal App Services, Auto-scaling)
+- Step 05: Network Virtual Appliance (NVA), UDR, and Custom Routing
+- Step 06: Monitoring, Alerts, Dashboards, and Automated Remediation (using Log Analytics, Action Groups, and GitHub Actions)
 
 ### Project 03: Enterprise Identity & Conditional Access
-An identity-focused lab targeting secure authentication, privileged access, app registration, external access governance, and advanced monitoring with Defender and Sentinel.
+A Zero Trust-aligned identity architecture focused on secure authentication, least-privilege access, external collaboration control, workload identity protection, and advanced analytics. All configurations follow Microsoft-recommended best practices and are deployed using Bicep.
 
 (Coming soon - documented in full once Project 02 is finalized.)
 
