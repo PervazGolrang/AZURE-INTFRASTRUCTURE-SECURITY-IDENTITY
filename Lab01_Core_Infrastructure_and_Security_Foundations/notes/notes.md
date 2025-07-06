@@ -25,13 +25,7 @@ Azure Bastion provides secure and audited RDP/SSH access:
 - All access sessions are logged and can be monitored
 - Ideal for emergency access or security-first operations
 
-I chose the **Basic SKU** for cost-effectiveness, but Enterprise-grade deployments should use **Standard SKU** with custom DNS and IP-based connection support.
-
----
-
-## Why /27 for AzureBastionSubnet?
-
-Microsoft mandates a `/27` or larger subnet for Azure Bastion. This is non-negotiable and enforced by the Azure platform to allow for sufficient scaling and internal resources used by the Bastion host.
+I chose the **Basic SKU** for cost-effectiveness, as I did not need custom DNS and IP-based connection supprot.
 
 ---
 
@@ -103,15 +97,4 @@ This naming style:
 | Monitoring                | Azure Monitor Agent instead of MMA     |
 | Identity                  | User-assigned managed identity         |
 
-We selected defaults that balance **realism**, **simplicity**, and **best practice**.
-
----
-
-## Final Thoughts
-
-This lab is intentionally kept focused and modular:
-- Enables reuse of the deployed network, logging, and identity components
-- Each step builds toward a secure and production-relevant design
-- Follow-up steps extend this foundation into storage, firewalling, governance, apps, and SIEM
-
-This pattern mirrors real-world project delivery where infrastructure is staged and iteratively hardened.
+I selected defaults that balance **realism**, **simplicity**, and **best practice**.

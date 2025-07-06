@@ -2,7 +2,7 @@
 
 This step configures a secure Azure Storage Account with logging, private endpoint access, and access control via shared access signatures (SAS). It avoids public exposure while retaining diagnostic and operational capability.
 
-## 4.1 - Create Storage Account
+## 4.1 - Create a Storage Account
 
 ```bash
 az storage account create \
@@ -17,16 +17,16 @@ az storage account create \
   --allow-blob-public-access false
 ```
 
-Confirm it's created with secure defaults:
+Confirm that it is created with secure best-practice:
 - Public access disabled
 - HTTPS only
 - TLS 1.2 minimum
 
-## 4.2 - Enable Storage Account Diagnostics
+## 4.2 - Enable Storage Account Diagnostics (Azure Portal)
 
-I recommend using the Azure Portal, it’s quicker and avoids the messy CLI syntax or needing your subscription ID.
+I recommend using the Azure Portal rather than the Azure Cloud Sheell, it’s quicker and avoids the messy CLI syntax or needing your subscription ID.
 
-This can be accomplished at Storage Account (stsecureneu01) > Monitoring > Diagnostic Settings. Click on **blob**. Then click **+ Add diagnoistic settings**, name is `diag-settings-storage`. Under **Log** check:
+This can be accomplished at Storage Account `(stsecureneu01) > Monitoring > Diagnostic Settings`. Click on **blob**. Then click **+ Add diagnoistic settings**, name is `diag-settings-storage`. Under **Log** check:
 - StorageRead
 - StorageWrite
 - StorageDelete
@@ -47,7 +47,7 @@ az monitor diagnostic-settings create \
 
 Replace `<SUB_ID>` with your subscription ID.
 
-## 4.3 - Create Private Endpoint for Storage
+## 4.3 - Create a Private Endpoint for Storage
 
 This removes public network dependency.
 
@@ -64,7 +64,7 @@ az network private-endpoint create \
 
 Approve the connection if not auto-approved.
 
-## 4.4 - Create Private DNS Zone and Link
+## 4.4 - Create a Private DNS Zone and Link
 
 ```bash
 az network private-dns zone create \
@@ -88,7 +88,7 @@ az network private-endpoint dns-zone-group create \
 
 Test that `stsecureneu01.blob.core.windows.net` resolves to a private IP from the VM.
 
-## 4.5 - Generate Shared Access Signature (SAS)
+## 4.5 - Generate a Shared Access Signature (SAS)
 
 ```bash
 az storage container create \
@@ -109,9 +109,9 @@ az storage container generate-sas \
 
 The main reason to use the CLI instead of the Portal is that the Web UI only supports key-based SAS tokens, not user delegation SAS (`--as-user`). This is a limitation in Azure, not a feature gap. If you want a SAS token tied to your Microsoft Entra ID, you must use the CLI. Do note that the `--as-user` supports a maximum of 7 days.
 
-## 4.6 - Validate Access from VM
+## 4.6 - Validate the Access from VM
 
-SSH or RDP into the VM via Bastion.
+SSH or RDP into the VM via Bastion, I recommend SSH.
 
 - Install PowerShell to access blob using SAS
 - Create a testfile.txt
@@ -125,10 +125,8 @@ az storage blob upload \
   --sas-token "<sas-token>"
 ```
 
-Or use `curl`/`wget` to access via HTTPS endpoint and confirm connectivity.
-
 ## Screenshots
 
-- `07-private-endpoint-blob.png`
-- `08-dns-resolution.png`
-- `09-sas.png`
+- [`07-private-endpoint-blob.png`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/07-private-endpoint-blob.png)
+- [`08-dns-resolution.png`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/08-dns-resolution.png)
+- [`09-sas.png`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/09-sas.png)

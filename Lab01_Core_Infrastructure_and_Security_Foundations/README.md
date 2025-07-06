@@ -6,15 +6,6 @@ This project demonstrates how to design and deploy a secure, modular Azure infra
 
 To simulate real-world Azure infrastructure deployment focused on security, visibility, and operational control, as would be expected in an enterprise environment. Mainly written with Azure Cloud Shell.
 
-## Scope
-
-- Isolated compute with zero public exposure (via Azure Bastion)
-- Network segmentation with NSGs and UDRs
-- Role-based and just-in-time privileged access using Entra ID PIM
-- Policy-driven governance and diagnostic logging
-- Front-end zero trust security using WAF and Front Door
-- Full observability with Azure Monitor, Log Analytics, and Microsoft Sentinel
-
 ## Resource Overview
 
 | Resource Type        | Name                                       |
@@ -27,21 +18,21 @@ To simulate real-world Azure infrastructure deployment focused on security, visi
 | Bastion Host         | `bastion-core-neu01`                       |
 | Log Analytics        | `log-core-neu01`                           |
 
-Remember that a /27 subnet is required for Bastion
+Bastion requires a /27 subnet.
 
 ## Step-by-Step Guide and Breakdown
 
-Screenshots are stored in `images/`, referenced directly inside each step
+Screenshots are stored in [`images/`](images/), referenced directly inside each step
 
-| Step | Description                                                                                 |
-|------|---------------------------------------------------------------------------------------------|
-| 01   | Deploy a secure virtual network, Azure Bastion, and jump VM with no public IP.              |
-| 02   | Configure private storage with diagnostic logging, firewall rules, and access restrictions. |
-| 03   | Enforce RBAC, set up Entra ID PIM for privileged access, and activate identity logging.     |
-| 04   | Implement custom DNS forwarders and user-defined routes.                                    |
-| 05   | Deploy a basic landing zone with Azure Firewall, and Azure Policy.                          |
-| 06   | Set up a Zero Trust front-end architecture with Front Door and WAF.                         |
-| 07   | Enable Microsoft Sentinel, and configure analytics rules.                                   |
+| Step | Description                                                                                   |
+|------|-----------------------------------------------------------------------------------------------|
+| 01   | Deploy a secure virtual network, Azure Bastion, and jump VM with no public IP.                |
+| 02   | Configure a private storage with diagnostic logging, firewall rules, and access restrictions. |
+| 03   | Enforce RBAC, set up Entra ID PIM for privileged access, and activate identity logging.       |
+| 04   | Implement a custom DNS forwarders and user-defined routes.                                    |
+| 05   | Deploy a basic landing zone with Azure Firewall, and Azure Policy.                            |
+| 06   | Set up a Zero Trust front-end architecture with Front Door and WAF.                           |
+| 07   | Enable Microsoft Sentinel, and configure analytics rules.                                     | 
 
 All deployment steps are located in the [`steps/`](steps/) folder:
 

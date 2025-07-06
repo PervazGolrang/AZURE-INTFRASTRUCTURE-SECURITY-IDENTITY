@@ -1,6 +1,6 @@
 # Step 2 - Azure Bastion and NSG Configuration
 
-This step deploys Azure Bastion to enable secure browser-based access to the virtual machine. You will also configure the network security group (NSG) to allow only required traffic for Bastion and monitoring agents. The VM will remain fully isolated from public IP exposure.
+This step deploys Azure Bastion to enable secure browser-based access to the virtual machine. This will also configure the network security group (NSG) to allow only required traffic for both Bastion and the monitoring agents. The VM will remain **fully isolated** from public IP exposure.
 
 ## 2.1 - Deploy Azure Bastion Host
 
@@ -25,17 +25,17 @@ az network bastion create \
   --public-ip-address bastion-pip \
 ```
 
-After deployment, go to the portal > Bastion Host > Overview and verify it is running.
+After deployment, go to the `Azure Portal > Bastion Host > Overview` and verify it is running.
 
-## 2.2 - Create and Update NSG Rules
+## 2.2 - Create and Update the NSG Rules
 
 Open inbound access only to allow Bastion and agent services.
 
-You can allow these:
+Allow these rules:
 
-- Allow TCP 3389 (RDP) from Azure Bastion service tag
-- Allow TCP 22 (SSH) from Azure Bastion (if using Linux)
-- Allow AzureMonitor Service Tag (for diagnostic agents)
+- `TCP 3389 (RDP)` from Azure Bastion service tag
+- AzureMonitor Service Tag (for diagnostic agents)
+- `TCP 22 (SSH)` from Azure Bastion
 
 ```bash
 az network nsg create \
@@ -48,8 +48,12 @@ az network vnet subnet update \
   --vnet-name vnet-core-neu01 \
   --name subnet-jumphost01 \
   --network-security-group nsg-jumphost-01
+```
 
-# Rule 1: Allow RDP from Virtual Network (for Bastion)
+Adding rules for `AzureMonitor` for Bastion and logging.
+
+```bash
+# Rule 1: Allow RDP from Virtual Network used for Bastion
 az network nsg rule create \
   --resource-group rg-secure-vm-01 \
   --nsg-name nsg-jumphost-01 \
@@ -60,12 +64,8 @@ az network nsg rule create \
   --protocol Tcp \
   --source-address-prefixes VirtualNetwork \
   --destination-port-ranges 3389
-```
 
-Add additional rules for `AzureMonitor` and port 22 (SSH) if needed.
-
-```bash
-# Rule 2: Allow Azure Monitor (for insights/logging)
+# Rule 2: Allow Azure Monitor used for logging
 az network nsg rule create \
   --resource-group rg-secure-vm-01 \
   --nsg-name nsg-jumphost-01 \
@@ -80,9 +80,9 @@ az network nsg rule create \
 
 ## 2.3 - Connect via Bastion
 
-1. Go to the VM in the portal
+1. Access the VM through the Azure Portal
 2. Click `Connect` > `Bastion`
-3. Log in using the credentials you set during VM deployment
+3. Login using the credentials that were set during VM deployment
 
 ## 2.4 - Test and Validate
 
@@ -92,9 +92,7 @@ Confirm:
 - VM still has no public IP
 - NSG logging is optionally enabled for diagnostics
 
-You can test that SSH or RDP from your local machine is blocked (should timeout or be denied).
-
 ## Screenshots:
 
-- `03-bastion-session.png`
-- `04-nsg-ruleset.png`
+- [`03-bastion-session.png`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/03-bastion-session.png)
+- [`04-nsg-ruleset.png`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/04-nsg-ruleset.png)

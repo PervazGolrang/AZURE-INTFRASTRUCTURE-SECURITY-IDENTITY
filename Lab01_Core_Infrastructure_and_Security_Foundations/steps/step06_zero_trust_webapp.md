@@ -1,14 +1,8 @@
-# Step 6 - Zero Trust Web App with WAF and Azure AD Authentication
+# Step 6 - Zero Trust Web App with WAF and Microsoft Entra ID Authentication
 
-This step simulates a production-grade public web application that uses:
-- Azure App Service for hosting
-- Azure Front Door for global distribution and TLS termination
-- Azure Web Application Firewall (WAF) for Layer 7 protection
-- Azure AD login for authentication (OIDC)
-- Private Endpoint to isolate backend
-- Logging via Diagnostic Settings to Log Analytics
+This step sets up a secure public web application following Zero Trust principles. It uses Azure Front Door for global access and TLS termination, Azure WAF for Layer 7 protection, and Microsoft Entra ID (OIDC) for user authentication. The backend is isolated using a Private Endpoint, where all activity is logged via Diagnostic Settings to Log Analytics.
 
-## 6.1 - Create App Service Plan and Web App
+## 6.1 - Create an App Service Plan and Web App
 
 ```bash
 az appservice plan create \
@@ -25,11 +19,11 @@ az webapp create \
   --deployment-local-git
 ```
 
-Using .NET 8 due to stability.
+Using .NET 8 due to LTS stability, avoid .NET 9 and preview .NET 10.
 
 Push simple app content via Git or use deployment center to upload.
 
-## 6.2 - Create Private Endpoint for Web App
+## 6.2 - Create a Private Endpoint for Web App
 
 ```bash
 az network private-endpoint create \
@@ -44,9 +38,9 @@ az network private-endpoint create \
 
 Confirm DNS resolution via `privatelink.azurewebsites.net`.
 
-## 6.3 - Create Azure Front Door + WAF Policy
+## 6.3 - Create a Azure Front Door + WAF Policy
 
-This section walks through creating an Azure Front Door profile and attaching a WAF policy with a custom rule to block bots.
+This three-step-section creates an Azure Front Door profile, and attaching a WAF policy with a custom rule to block bots.
 
 ### Step 1 - Create the Front Door profile
 - Name: `afd-secure-core`
@@ -61,7 +55,7 @@ This section walks through creating an Azure Front Door profile and attaching a 
 - Purpose: Define rules to protect against OWASP attacks or custom filters
 
 ### Step 3 - Add a Custom WAF Rule
-Located in the WAF Policy > wafpolicysecure01 > Settings-Tab > Custom rules
+Located in the WAF `Policy > wafpolicysecure01 > Settings-Tab > Custom rules`
 
 - Rule Name: `blockbots` (Must ONLY contain letters or numbers)
 - Priority: `100` (lower number = higher priority)
@@ -74,7 +68,7 @@ Located in the WAF Policy > wafpolicysecure01 > Settings-Tab > Custom rules
 - Match values: `bot` (matches suspicious bot-like IPs)
 - Then: `Deny traffic` (any request matching this rule will be dropped)
 
-## 6.4 - Enable Azure AD Authentication for Web App
+## 6.4 - Enable Microsoft Entra ID Authentication for the Web App
 
 ```bash
 az ad app create \
@@ -87,17 +81,11 @@ az webapp auth update \
   --action LoginWithAzureActiveDirectory
 ```
 
-Test SSO login using a test user in AAD.
-
-## Validation
-
-- App reachable via Front Door URL only
-- App backend is private
-- WAF blocks defined patterns
-- Azure AD login works
+### Note:
+Azure Active Directory (AAD) has been renamed to Microsoft Entra ID, however, the CLI and API paramters still use the `AzureActiveDirectory` as the identifier. Rebranding to Entra ID took place in 2023, two years later in 2025, it has not been updated for backwards compatability.
 
 ## Screenshots
 
-- `14_custom_rule_waf`
-- `15-app-private-endpoint`
-- `16-frontdoor-waf`
+- [`14_custom_rule_waf`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/14_custom_rule_waf.png)
+- [`15-app-private-endpoint`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/15-app-private-endpoint.png)
+- [`16-frontdoor-waf`](/Lab01_Core_Infrastructure_and_Security_Foundations/images/16-frontdoor-waf.png)
