@@ -83,7 +83,7 @@ resource "azurerm_public_ip" "bastion" {
 
 # Network Security Group with rules
 resource "azurerm_network_security_group" "jumphost" {
-  name                = "nsg-jumphost-01"
+  name                = "nsg-jumphost01"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
 
@@ -95,7 +95,7 @@ resource "azurerm_network_security_group" "jumphost" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "3389"
-    source_address_prefix      = "VirtualNetwork"
+    source_address_prefix      = "AzureBastion"
     destination_address_prefix = "*"
   }
 
