@@ -33,7 +33,7 @@
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "name": "PerGB2025"
+          "name": "PerGB2018"
         },
         "retentionInDays": 30,
         "features": {

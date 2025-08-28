@@ -19,7 +19,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2021-12-01-previ
   location: location
   properties: {
     sku: {
-      name: 'PerGB2025'
+      name: 'PerGB2018'
     }
     retentionInDays: 30
     features: {
