@@ -24,9 +24,9 @@ Confirm that it is created with secure best-practice:
 
 ## 4.2 - Enable Storage Account Diagnostics (Azure Portal)
 
-I recommend using the Azure Portal rather than the Azure Cloud Sheell, it’s quicker and avoids the messy CLI syntax or needing your subscription ID.
+I recommend using the Azure Portal rather than the Azure Cloud Shell, it’s quicker and avoids the messy CLI syntax or needing your subscription ID.
 
-This can be accomplished at Storage Account `(stsecureneu01) > Monitoring > Diagnostic Settings`. Click on **blob**. Then click **+ Add diagnoistic settings**, name is `diag-settings-storage`. Under **Log** check:
+This can be accomplished at Storage Account `(stsecureneu01) > Monitoring > Diagnostic Settings`. Click on **blob**. Then click **+ Add diagnostic settings**, name is `diag-settings-storage`. Under **Log** check:
 - StorageRead
 - StorageWrite
 - StorageDelete
@@ -120,7 +120,7 @@ SSH or RDP into the VM via Bastion, I recommend SSH.
 az storage blob upload \
   --account-name stsecureneu01 \
   --container-name container01 \
-  --file "C:\Users\labadmin\textfile" \
+  --file "C:\Users\labadmin\textfile.txt" \
   --name uploadedfile.txt \
   --sas-token "<sas-token>"
 ```

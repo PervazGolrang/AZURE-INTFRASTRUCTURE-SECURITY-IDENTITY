@@ -54,9 +54,9 @@ Then associate it with the subnet:
 ```bash
 az network vnet subnet update \
   --vnet-name vnet-core-neu01 \
-  --name subnet-jumphos01 \
+  --name subnet-jumphost01 \
   --resource-group rg-secure-vm-01 \
-  --network-security-group nsg-jumphos01
+  --network-security-group nsg-jumphost01
 ```
 
 ## 1.4 - Deploy the Virtual Machine

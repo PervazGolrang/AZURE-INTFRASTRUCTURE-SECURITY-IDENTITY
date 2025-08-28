@@ -62,7 +62,7 @@ az role assignment create \
 ```
 
 Replace <principalId> with the value returned in step 3.3.
-Replace <sub_ID> with **your** subscribtion ID.
+Replace <sub_ID> with **your** subscription ID.
 
 ## 3.5 - Validate that data arrives in Log Analytics
 

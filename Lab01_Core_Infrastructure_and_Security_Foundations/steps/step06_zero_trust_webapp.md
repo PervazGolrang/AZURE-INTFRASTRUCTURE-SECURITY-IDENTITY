@@ -32,13 +32,13 @@ az network private-endpoint create \
   --vnet-name vnet-core-neu01 \
   --subnet subnet-jumphost01 \
   --private-connection-resource-id $(az webapp show -n app-secure-neu01 -g rg-secure-vm-01 --query id -o tsv) \
-  --group-id sites
+  --group-id sites \
   --connection-name pe-link-app-secure
 ```
 
 Confirm DNS resolution via `privatelink.azurewebsites.net`.
 
-## 6.3 - Create a Azure Front Door + WAF Policy
+## 6.3 - Create an Azure Front Door + WAF Policy
 
 This three-step-section creates an Azure Front Door profile, and attaching a WAF policy with a custom rule to block bots.
 
@@ -82,7 +82,7 @@ az webapp auth update \
 ```
 
 ### Note:
-Azure Active Directory (AAD) has been renamed to Microsoft Entra ID, however, the CLI and API paramters still use the `AzureActiveDirectory` as the identifier. Rebranding to Entra ID took place in 2023, two years later in 2025, it has not been updated for backwards compatability.
+Azure Active Directory (AAD) has been renamed to Microsoft Entra ID, however, the CLI and API parameters still use the `AzureActiveDirectory` as the identifier. Rebranding to Entra ID took place in 2023, two years later in 2025, it has not been updated for backwards compatibility.
 
 ## Screenshots
 

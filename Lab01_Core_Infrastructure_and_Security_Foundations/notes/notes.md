@@ -25,7 +25,7 @@ Azure Bastion provides secure and audited RDP/SSH access:
 - All access sessions are logged and can be monitored
 - Ideal for emergency access or security-first operations
 
-I chose the **Basic SKU** for cost-effectiveness, as I did not need custom DNS and IP-based connection supprot.
+I chose the **Basic SKU** for cost-effectiveness, as I did not need custom DNS and IP-based connection support.
 
 ---
 
@@ -69,7 +69,7 @@ Log Analytics is a central logging backend:
 - Provides deep visibility into environment behavior
 - Prepares us for detection engineering in Step 7
 
-Workspace naming and region (`log-core-weu01`, West Europe) match best practice conventions.
+Workspace naming and region (`log-core-neu01`, North Europe) match best practice conventions.
 
 ---
 
@@ -79,7 +79,7 @@ We use lowercase + hyphen + region codes:
 
 - `vm-jumphost-weu01`
 - `rg-secure-vm-01`
-- `log-core-weu01`
+- `log-core-neu01`
 
 This naming style:
 - Matches Microsoft Cloud Adoption Framework

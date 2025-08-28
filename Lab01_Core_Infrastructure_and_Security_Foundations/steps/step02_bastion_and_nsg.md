@@ -22,7 +22,7 @@ az network bastion create \
   --resource-group rg-secure-vm-01 \
   --vnet-name vnet-core-neu01 \
   --location northeurope \
-  --public-ip-address bastion-pip \
+  --public-ip-address bastion-pip
 ```
 
 After deployment, go to the `Azure Portal > Bastion Host > Overview` and verify it is running.
@@ -39,7 +39,7 @@ Allow these rules:
 
 ```bash
 az network nsg create \
-  --name nsg-jumphost-01 \
+  --name nsg-jumphost01 \
   --resource-group rg-secure-vm-01 \
   --location northeurope
 
@@ -47,7 +47,7 @@ az network vnet subnet update \
   --resource-group rg-secure-vm-01 \
   --vnet-name vnet-core-neu01 \
   --name subnet-jumphost01 \
-  --network-security-group nsg-jumphost-01
+  --network-security-group nsg-jumphost01
 ```
 
 Adding rules for `AzureMonitor` for Bastion and logging.
@@ -56,19 +56,19 @@ Adding rules for `AzureMonitor` for Bastion and logging.
 # Rule 1: Allow RDP from Virtual Network used for Bastion
 az network nsg rule create \
   --resource-group rg-secure-vm-01 \
-  --nsg-name nsg-jumphost-01 \
+  --nsg-name nsg-jumphost01 \
   --name Allow-RDP-from-Bastion \
   --priority 100 \
   --direction Inbound \
   --access Allow \
   --protocol Tcp \
-  --source-address-prefixes VirtualNetwork \
+  --source-address-prefixes AzureBastion \
   --destination-port-ranges 3389
 
 # Rule 2: Allow Azure Monitor used for logging
 az network nsg rule create \
   --resource-group rg-secure-vm-01 \
-  --nsg-name nsg-jumphost-01 \
+  --nsg-name nsg-jumphost01 \
   --name Allow-AzureMonitor \
   --priority 110 \
   --direction Inbound \

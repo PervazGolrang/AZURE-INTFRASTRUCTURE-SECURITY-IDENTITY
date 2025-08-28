@@ -35,7 +35,7 @@ The VM and other Azure Services in Microsoft Sentinel can be monitored after set
 
 2. In the Microsoft Sentinel portal, go to Data Connectors and connect additional data sources such as Microsoft Defender for Cloud, Microsoft Entra ID, and Activity Logs. Enabling these connectors allows Sentinel to gather data from these services for a broader security overview.
 
-These two steps ensures that the Sentinel receives logs from the virtual machines and core Azure security services, so it can detect potential threats across the Azure environment.
+These two steps ensure that the Sentinel receives logs from the virtual machines and core Azure security services, so it can detect potential threats across the Azure environment.
 
 ## Screenshots
 
