@@ -2,7 +2,7 @@
 // Based on step07_sentinel_pipeline.md
 
 param location string = resourceGroup().location
-param vmName string = 'vm-jhost-01'
+param vmName string = 'vm-jhost-neu01'
 param logAnalyticsWorkspaceName string = 'log-sentinel-neu01'
 
 // Log Analytics Workspace for Sentinel
@@ -68,7 +68,7 @@ resource actionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = {
     enabled: true
     emailReceivers: [
       {
-        name: 'Persnal_Email'
+        name: 'Personal_Email'
         emailAddress: 'pervazgolrang@protonmail.com'
         useCommonAlertSchema: true
       }

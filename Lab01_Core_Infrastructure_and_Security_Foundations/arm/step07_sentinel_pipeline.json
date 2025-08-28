@@ -7,8 +7,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.36.1.42791",
-      "templateHash": "2366910056170819005"
+      "version": "0.37.4.10188",
+      "templateHash": "6069663371879045549"
     }
   },
   "parameters": {
@@ -18,7 +18,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "vm-jhost-01"
+      "defaultValue": "vm-jhost-neu01"
     },
     "logAnalyticsWorkspaceName": {
       "type": "string",
@@ -91,8 +91,8 @@
         "enabled": true,
         "emailReceivers": [
           {
-            "name": "SecurityTeam",
-            "emailAddress": "security@company.com",
+            "name": "Personal_Email",
+            "emailAddress": "pervazgolrang@protonmail.com",
             "useCommonAlertSchema": true
           }
         ]

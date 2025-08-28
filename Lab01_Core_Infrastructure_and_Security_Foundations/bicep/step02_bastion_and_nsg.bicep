@@ -6,7 +6,7 @@ param location string = resourceGroup().location
 param vnetName string = 'vnet-core-neu01'
 param subnetJumphostName string = 'subnet-jumphost01'
 param subnetBastionName string = 'AzureBastionSubnet'
-param nsgName string = 'nsg-jumphost-01'
+param nsgName string = 'nsg-jumphost01'
 param bastionName string = 'bastion-core-neu01'
 param bastionPipName string = 'bastion-pip'
 
@@ -51,7 +51,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2023-02-01' = {
           direction: 'Inbound'
           access: 'Allow'
           protocol: 'Tcp'
-          sourceAddressPrefix: 'VirtualNetwork'
+          sourceAddressPrefix: 'AzureBastion'
           sourcePortRange: '*'
           destinationAddressPrefix: '*'
           destinationPortRange: '3389'

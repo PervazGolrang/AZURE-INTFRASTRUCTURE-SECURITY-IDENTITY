@@ -7,8 +7,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.36.1.42791",
-      "templateHash": "7524219606544659485"
+      "version": "0.37.4.10188",
+      "templateHash": "11001298755871654755"
     }
   },
   "parameters": {
@@ -30,7 +30,7 @@
     },
     "nsgName": {
       "type": "string",
-      "defaultValue": "nsg-jumphost-01"
+      "defaultValue": "nsg-jumphost01"
     },
     "bastionName": {
       "type": "string",
@@ -69,7 +69,7 @@
               "direction": "Inbound",
               "access": "Allow",
               "protocol": "Tcp",
-              "sourceAddressPrefix": "VirtualNetwork",
+              "sourceAddressPrefix": "AzureBastion",
               "sourcePortRange": "*",
               "destinationAddressPrefix": "*",
               "destinationPortRange": "3389"
